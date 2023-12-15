@@ -1,68 +1,54 @@
-Monty
-This is an introductory project that explains what LIFO and FIFO mean What a stack is, and when to use it what a queue is, and when to use it What are the common implementations of stacks and queues what are the most common use cases of stacks and queues, what is the proper way to use global variables, and how to work with git submodules.
+Monty Interpreter
+These is monty interpreter built on C language and complient with ISO90,ISO099. &ISO11.it reads monty bytcode files of any extension.However I prefer if you use .m extension.
 
-Monty 0.98 is a scripting language that is first compiled into Monty byte codes (Just like Python). It relies on a unique stack, with specific instructions to manipulate it. The goal of this project is to create an interpreter for Monty ByteCodes files.
+monty can run as either a stack (LIFO) or queue(FIFO).Mode can be switched mid-script. the interpreter can handle a varity opcodes, including printing, mathmatical operations, and more all handled opcodes are listed below.
 
-Monty Bytecode
-Files containing Monty byte codes usually have the .m extension. Most of the industry uses this standard but it is not required by the specification of the language. There is not more than one instruction per line. There can be any number of spaces before or after the opcode and its argument:
+🏃 Getting Started
+Ubuntu 14.04 LTS - operating system required
+GCC 4.8.4 - Compiler used
+⚡ How to install
+clone these repository to your machine:
 
- push 0$
-push 1$
-push 2$
-  push 3$
-                   pall    $
-push 4$
-    push 5    $
-      push    6        $
-pall$
+$ git clone https://github.com/Fraol123/monty.git
+compile with the following:
 
-Monty byte code files can contain blank lines (empty or made of spaces only, and any additional text after the opcode or its required argument is not taken into account:
+gcc -Wall -Werror -Wextra -pedantic *.c -o monty
+Run monty on file:
 
-push 0 Push 0 onto the stack$
-push 1 Push 1 onto the stack$
-$
-push 2$
-  push 3$
-                   pall    $
-$
-$
-                           $
-push 4$
-$
-    push 5    $
-      push    6        $
-$
-pall This is the end of our program. Monty is awesome!$
+./monty file.m
+🔧 Monty Opcodes
+push
+Usage:push <int>
+pushes an element to the stack
+The parameter <int> must be an integer
+pall
+prints value in stack/queus, starting fromm the top.
+pint
+prints the top value of the stack\queus.
+pop
+Removes the top element of the stack\queus.
+swap -swaps the top two element of stack\queue
+nop
+does nothing
+add
+Adds the top two elements of the stack\queue
+The result is stored in the second element from the top and the top element is poped
+sub
+subtracts the top two elements of the stack\queue
+the result is stored in the second element from the top and the top element is poped
+div
+divides the top two elements of stack\queue
+takes zero's error in considaration
+mul
+multiplies the top two elements of stack\queue
+mod
+modules of the top two elements of stack\queue
+📮 opcode preceded by # are treted as comment
 
-Usage
-Fork (this will be a link to a guide to forking)
-Clone (link as well)
-Run the following command:
- gcc -Wall -Werror -Wextra -pedantic *.c -o monty.
-To run files, commands take the following form:
-./monty bytecode_file
-List of Files
-Operation Codes
-These are the available Operation Codes:
+📘 AUTHOR
+💻Billy Adan
 
-Opcode	Description
-push	Pushes an element to the stack. e.g (push 1 # pushes 1 into the stack)
-pall	Prints all the values on the stack, starting from the to of the stack.
-pint	Prints the value at the top of the stack.
-pop	Removes the top element of the stack.
-swap	Swaps the top two elements of the stack.
-add	Adds the top two elements of the stack. The result is then stored in the second node, and the first node is removed.
-nop	Doesn't do anything
-sub	Subtracts the top element of the stack from the second top element of the stack. The result is then stored in the second node, and the first node is removed.
-div	Divides the top two elements of the stack from the second top element. The result is then stored in the second node, and the first node is removed.
-mul	Multiplies the top two elements of the stack from the second top element. The result is then stored in the second node, and the first node is removed.
-mod	Computes the remainder of the top two elements of the stack from the second top element. The result is then stored in the second node, and the first node is removed.
-#	When the first non-space character of a line is #, the line will be treated as a comment`
-pchar	Prints the character at the top of the stack, followed by a new line.
-pstr	Prints the integers stored in the stack as their ascii value representation. It stops printing when the value is 0, when the stack is over and when the value of the element is a non-ascii value.
-rotl	Rotates the top of the stack to the bottom of the stack.
-rotr	Rotates the bottom of the stack to the top of the stack.
-stack	This is the default behavior. Sets the format of the data into a stack (LIFO).
-queue	Sets the format of the data into a queue (FIFO).
-Author
-Billy Adan
+🎺 Acknowldgement
+Holberton School- for giving these challenging project and providing guidlines
+ALX- sensei
+stack overflow - providing solution as needed
